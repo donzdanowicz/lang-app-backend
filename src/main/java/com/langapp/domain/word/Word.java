@@ -1,11 +1,17 @@
-package com.langapp.domain;
+package com.langapp.domain.word;
 
+import com.langapp.common.Level;
+import com.langapp.domain.activity.Activity;
+import com.langapp.domain.category.Category;
+import com.langapp.domain.lesson.Lesson;
+import com.langapp.domain.revision.Revision;
+import com.langapp.domain.sentence.Sentence;
+import com.langapp.domain.text.Text;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -33,6 +39,7 @@ public class Word {
     @Column(name = "AUDIO_URL")
     private String audioUrl;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "LEVEL")
     private Level level;
 
@@ -55,4 +62,8 @@ public class Word {
     @Builder.Default
     @ManyToMany(mappedBy = "words")
     private List<Text> texts =  new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "EXERCISE_ID")
+    private Activity activity;
 }

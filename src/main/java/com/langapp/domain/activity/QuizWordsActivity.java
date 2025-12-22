@@ -1,11 +1,11 @@
-package com.langapp.domain;
+package com.langapp.domain.activity;
 
+import com.langapp.domain.word.Word;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -15,21 +15,24 @@ import java.util.UUID;
 @Data
 @Builder
 @Entity
-@Table(name = "SENTENCES")
-public class Sentence {
+@Table(name = "QUIZ_WORDS_ACTIVITIES")
+public class QuizWordsActivity {
+
     @Id
     @Column(name = "ID", columnDefinition = "UUID")
     private UUID id;
 
-    @Column(name = "CONTENT")
-    private String content;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ACTIVITY_ID")
+    private Activity activity;
 
     @Builder.Default
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-            name = "WORDS_IN_SENTENCES",
-            joinColumns = @JoinColumn(name = "SENTENCE_ID"),
+            name = "WORDS_IN_QUIZ_WORDS",
+            joinColumns = @JoinColumn(name = "QUIZ_WORDS_ACTIVITY_ID"),
             inverseJoinColumns = @JoinColumn(name = "WORD_ID")
     )
     private List<Word> words = new ArrayList<>();
+
 }

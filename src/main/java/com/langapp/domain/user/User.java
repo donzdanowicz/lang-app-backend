@@ -1,5 +1,8 @@
-package com.langapp.domain;
+package com.langapp.domain.user;
 
+import com.langapp.common.Level;
+import com.langapp.domain.achievement.Achievement;
+import com.langapp.domain.revision.Revision;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,18 +1,16 @@
-package com.langapp.domain;
+package com.langapp.domain.sentence.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.List;
 import java.util.UUID;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
-public class CategoryDto {
+public class SentenceDto {
     private UUID id;
-    private String name;
-    private String badgeImageUrl;
+    private String content;
 }

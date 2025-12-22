@@ -1,22 +1,19 @@
-package com.langapp.domain;
+package com.langapp.domain.lesson.dto;
 
+import com.langapp.common.Level;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 import java.util.UUID;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
-public class TextDto {
+public class LessonDto {
     private UUID id;
     private String title;
-    private String content;
-    private String audioUrl;
-    private UUID lessonId;
-    private List<UUID> wordIds;
+    private String description;
+    private Level level;
 }
