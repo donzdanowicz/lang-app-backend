@@ -17,7 +17,9 @@ import java.util.UUID;
 @Entity
 @Table(name = "SENTENCES")
 public class Sentence {
+
     @Id
+    @GeneratedValue
     @Column(name = "ID", columnDefinition = "UUID")
     private UUID id;
 

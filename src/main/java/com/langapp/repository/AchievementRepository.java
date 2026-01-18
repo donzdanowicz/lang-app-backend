@@ -7,20 +7,21 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Transactional
 @Repository
-public interface AchievementRepository extends CrudRepository<Achievement, Long> {
+public interface AchievementRepository extends CrudRepository<Achievement, UUID> {
 
     @Override
     List<Achievement> findAll();
 
     @Override
-    Optional<Achievement> findById(Long id);
+    Optional<Achievement> findById(UUID id);
 
     @Override
     Achievement save(Achievement achievement);
 
     @Override
-    void deleteById(Long id);
+    void deleteById(UUID id);
 }

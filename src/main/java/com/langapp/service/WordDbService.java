@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -17,7 +18,7 @@ public class WordDbService {
         return repository.findAll();
     }
 
-    public Optional<Word> getWord(final Long id) {
+    public Optional<Word> getWord(final UUID id) {
         return repository.findById(id);
     }
 
@@ -25,7 +26,7 @@ public class WordDbService {
         return repository.save(word);
     }
 
-    public void deleteWord(final Long id) {
+    public void deleteWord(final UUID id) {
         repository.deleteById(id);
     }
 }

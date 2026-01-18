@@ -4,10 +4,8 @@ import com.langapp.common.Level;
 import com.langapp.domain.achievement.Achievement;
 import com.langapp.domain.revision.Revision;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +13,15 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 @Entity
 @Table(name = "USERS")
 public class User {
+
     @Id
+    @GeneratedValue
     @Column(name = "ID", columnDefinition = "UUID")
     private UUID id;
 

@@ -20,7 +20,9 @@ import java.util.UUID;
 @Entity
 @Table(name = "LESSONS")
 public class Lesson {
+
     @Id
+    @GeneratedValue
     @Column(name = "ID", columnDefinition = "UUID")
     private UUID id;
 
@@ -33,6 +35,10 @@ public class Lesson {
     @Enumerated(EnumType.STRING)
     @Column(name = "LEVEL")
     private Level level;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "TEXT_ID")
+    private Text text;
 
     @Builder.Default
     @ManyToMany
@@ -47,7 +53,4 @@ public class Lesson {
     @OneToMany(mappedBy = "lesson", cascade =  CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Activity> activities = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "TEXT_ID")
-    private Text text;
 }

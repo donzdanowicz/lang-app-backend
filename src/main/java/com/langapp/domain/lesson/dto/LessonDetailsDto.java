@@ -1,6 +1,7 @@
 package com.langapp.domain.lesson.dto;
 
 import com.langapp.common.Level;
+import com.langapp.domain.text.Text;
 import com.langapp.domain.word.dto.WordDto;
 import com.langapp.domain.activity.dto.ActivityDto;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ public class LessonDetailsDto {
     private String title;
     private String description;
     private Level level;
+    private Text text;
     private List<WordDto> newWords;
     private List<ActivityDto> activities;
 }

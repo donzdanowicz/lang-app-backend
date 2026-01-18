@@ -7,19 +7,20 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Transactional
 @Repository
-public interface WordRepository extends CrudRepository<Word, Long> {
+public interface WordRepository extends CrudRepository<Word, UUID> {
     @Override
     List<Word> findAll();
 
     @Override
-    Optional<Word> findById(Long id);
+    Optional<Word> findById(UUID id);
 
     @Override
     Word save(Word word);
 
     @Override
-    void deleteById(Long id);
+    void deleteById(UUID id);
 }

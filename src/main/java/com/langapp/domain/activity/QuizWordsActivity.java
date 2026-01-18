@@ -2,23 +2,23 @@ package com.langapp.domain.activity;
 
 import com.langapp.domain.word.Word;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 @Entity
 @Table(name = "QUIZ_WORDS_ACTIVITIES")
 public class QuizWordsActivity {
 
     @Id
+    @GeneratedValue
     @Column(name = "ID", columnDefinition = "UUID")
     private UUID id;
 

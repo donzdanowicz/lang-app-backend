@@ -1,23 +1,25 @@
 package com.langapp.domain.activity;
 
 import com.langapp.domain.lesson.Lesson;
+import com.langapp.domain.word.Word;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 @Entity
 @Table(name = "ACTIVITIES")
 public class Activity {
 
     @Id
+    @GeneratedValue
     @Column(name = "ID", columnDefinition = "UUID")
     private UUID id;
 
@@ -31,6 +33,15 @@ public class Activity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "LESSON_ID")
     private Lesson lesson;
+
+    @ManyToMany
+    @JoinTable(
+            name = "WORDS_IN_ACTIVITIES",
+            joinColumns = @JoinColumn(name = "ACTIVITY_ID"),
+            inverseJoinColumns = @JoinColumn(name = "WORD_ID")
+    )
+    private List<Word> words = new ArrayList<>();
+
 
     @OneToOne(mappedBy = "activity", cascade = CascadeType.ALL)
     private TextActivity textActivity;

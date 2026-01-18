@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -17,7 +18,7 @@ public class SentenceDbService {
         return repository.findAll();
     }
 
-    public Optional<Sentence> getSentence(final Long id) {
+    public Optional<Sentence> getSentence(final UUID id) {
         return repository.findById(id);
     }
 
@@ -25,7 +26,7 @@ public class SentenceDbService {
         return repository.save(sentence);
     }
 
-    public void deleteSentence(final Long id) {
+    public void deleteSentence(final UUID id) {
         repository.deleteById(id);
     }
 

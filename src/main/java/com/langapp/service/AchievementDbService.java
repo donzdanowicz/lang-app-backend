@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -17,7 +18,7 @@ public class AchievementDbService {
         return repository.findAll();
     }
 
-    public Optional<Achievement> getAchievement(final Long id) {
+    public Optional<Achievement> getAchievement(final UUID id) {
         return repository.findById(id);
     }
 
@@ -25,7 +26,7 @@ public class AchievementDbService {
         return repository.save(achievement);
     }
 
-    public void deleteAchievement(final Long id) {
+    public void deleteAchievement(final UUID id) {
         repository.deleteById(id);
     }
 }

@@ -19,9 +19,9 @@ import java.util.UUID;
 public class Revision {
 
     @Id
+    @GeneratedValue
     @Column(name = "ID", columnDefinition = "UUID")
     private UUID id;
-
 
     @Column(name = "CORRECT_COUNT")
     private int correctCount;

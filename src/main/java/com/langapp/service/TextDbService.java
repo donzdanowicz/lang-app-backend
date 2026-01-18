@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -17,7 +18,7 @@ public class TextDbService {
         return repository.findAll();
     }
 
-    public Optional<Text> getText(final Long id) {
+    public Optional<Text> getText(final UUID id) {
         return repository.findById(id);
     }
 
@@ -25,7 +26,7 @@ public class TextDbService {
         return repository.save(text);
     }
 
-    public void deleteText(final Long id) {
+    public void deleteText(final UUID id) {
         repository.deleteById(id);
     }
 }

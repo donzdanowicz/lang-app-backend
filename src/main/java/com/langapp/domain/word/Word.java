@@ -8,17 +8,16 @@ import com.langapp.domain.revision.Revision;
 import com.langapp.domain.sentence.Sentence;
 import com.langapp.domain.text.Text;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 @Entity
 @Table(name = "WORDS")
@@ -63,7 +62,7 @@ public class Word {
     @ManyToMany(mappedBy = "words")
     private List<Text> texts =  new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn(name = "EXERCISE_ID")
-    private Activity activity;
+    @Builder.Default
+    @ManyToMany(mappedBy = "words")
+    private List<Activity> activities = new ArrayList<>();
 }

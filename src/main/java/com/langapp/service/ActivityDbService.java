@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -17,7 +18,7 @@ public class ActivityDbService {
         return repository.findAll();
     }
 
-    public Optional<Activity> getActivity(Long id) {
+    public Optional<Activity> getActivity(UUID id) {
         return repository.findById(id);
     }
 
@@ -25,7 +26,7 @@ public class ActivityDbService {
         return repository.save(activity);
     }
 
-    public void deleteActivity(final Long id) {
+    public void deleteActivity(final UUID id) {
         repository.deleteById(id);
     }
 }

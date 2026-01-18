@@ -7,20 +7,21 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Transactional
 @Repository
-public interface ActivityRepository extends CrudRepository<Activity, Long> {
+public interface ActivityRepository extends CrudRepository<Activity, UUID> {
 
     @Override
     List<Activity> findAll();
 
     @Override
-    Optional<Activity> findById(Long id);
+    Optional<Activity> findById(UUID id);
 
     @Override
     Activity save(Activity activity);
 
     @Override
-    void deleteById(Long id);
+    void deleteById(UUID id);
 }
