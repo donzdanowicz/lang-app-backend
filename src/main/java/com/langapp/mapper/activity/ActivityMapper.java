@@ -32,7 +32,7 @@ public class ActivityMapper {
         return activityMapper.mapToDto(activity);
     }
 
-    public List<ActivityDto> map(final List<Activity> activities) {
+    public List<ActivityDto> mapToActivityDtoList(final List<Activity> activities) {
         return activities.stream()
                 .map(this::mapToActivityDto)
                 .toList();

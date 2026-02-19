@@ -27,7 +27,7 @@ public class ReviewActivityMapper implements SpecificActivityMapper<ReviewActivi
                 .id(activity.getId())
                 .activityType(ActivityType.REVIEW)
                 .order(activity.getOrder())
-                .words(wordMapper.mapToWordDtoList(activity.getWords()))
+                .words(wordMapper.mapToWordDtoList(reviewActivity.getWords()))
                 .build();
     }
 }

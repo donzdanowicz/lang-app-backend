@@ -11,5 +11,4 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class ListeningActivityDto extends ActivityDto {
     private TextDto text;
-    private String audioUrl; //TODO it is available in TextDto
 }

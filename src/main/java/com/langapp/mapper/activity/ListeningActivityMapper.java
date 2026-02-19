@@ -28,7 +28,6 @@ public class ListeningActivityMapper implements SpecificActivityMapper<Listening
                 .activityType(ActivityType.LISTENING)
                 .order(activity.getOrder())
                 .text(textMapper.mapToTextDto(listeningActivity.getText()))
-                .audioUrl(listeningActivity.getText().getAudioUrl())
                 .build();
     }
 }
